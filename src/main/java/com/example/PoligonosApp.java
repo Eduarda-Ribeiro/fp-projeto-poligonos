@@ -8,6 +8,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Polygon;
 import javafx.stage.Stage;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.function.BinaryOperator;
 import java.util.function.Function;
@@ -183,9 +184,16 @@ public class PoligonosApp extends Application {
      *
      * @return uma lista contendo o perímetro de cada polígono
      */
-    protected List<Double> perimetros(){
-        // TODO Apague esta linha e a próxima e implemente seu código
-        return List.of();
+    protected List<Double> perimetros() {
+        return pontosPoligonos.stream()
+                .flatMap(poligono -> {
+                    if (poligono.size() < 2) {
+                        return 0;
+                    }
+
+                })
+                .map(Point::distance)
+                .toList();
     }
 }
 
