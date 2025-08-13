@@ -130,9 +130,17 @@ public class PoligonosApp extends Application {
      * @return uma lista de String indicando se o polígono é um "quadrilátero" (quadrado ou retângulo),
      * "triângulo", "pentágono", "hexágono" ou apenas um "polígono" geral quando tiver mais de 6 lados.
      */
-    protected List<String> tipoPoligonos(){
-        // TODO Apague esta linha e a próxima e implemente seu código
-        return List.of();
+    protected List<String> tipoPoligonos() {
+        return pontosPoligonos.stream()
+                .flatMap(poligono -> Stream.of(poligono.size())) // "achata" para stream de tamanhos
+                .map(qtd -> {
+                    if (qtd == 3) return "Triângulo";
+                    else if (qtd == 4) return "Quadrilátero";
+                    else if (qtd == 5) return "Pentágono";
+                    else if (qtd == 6) return "Hexágono";
+                    else return "Polígono";
+                })
+                .toList();
     }
 
     /**
