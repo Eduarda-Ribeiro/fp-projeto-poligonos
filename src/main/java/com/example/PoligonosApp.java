@@ -191,7 +191,7 @@ public class PoligonosApp extends Application {
                     if (poligono.size() < 2) {                 // (3)
                         return Stream.of(new Point(0, 0, 0));  // (4)
                     }
-                    return Stream.of();
+                    return Stream.of(new Point(0,0,0));
                 })
                 .map(Point::distance)                           // (12)
                 .toList();                                      // (13)
