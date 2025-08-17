@@ -193,6 +193,11 @@ public class PoligonosApp extends Application {
                     }
                     List<Point> ultimoPontoPoligono = new ArrayList<>(poligono);
                     ultimoPontoPoligono.add(poligono.get(0));
+
+                    Point pontoIncial = new Point(
+                            poligono.get(poligono.size() -1),
+                            poligono.get(0)
+                    );
                     return  Stream.of(new Point(0,0,0));
                 })
                 .map(Point::distance)
